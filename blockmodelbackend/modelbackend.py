@@ -12,7 +12,7 @@ from .models import IpBlock, UserBlock
 
 
 UserModel = get_user_model()
-NETWORK_SCOPE = settings.get("NETWORK_SCOPE", "wan")
+NETWORK_SCOPE = getattr(settings, "NETWORK_SCOPE", "wan")
 
 
 class BlockModelBackendException(ValidationError):

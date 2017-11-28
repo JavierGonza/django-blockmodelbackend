@@ -6,11 +6,11 @@ from django.db import models
 from django.utils import timezone
 
 
-MAX_ACCESS_ATTEMPTS = settings.get("MAX_ACCESS_ATTEMPTS", 3)
-LOCK_DURATION = settings.get("LOCK_DURATION", 5)
-DELTA_LOCK_DURATION = settings.get("DELTA_LOCK_DURATION", 1)
-USER_PERMANENT_BLOCK = settings.get("USER_PERMANENT_BLOCK", False)
-IP_PERMANENT_BLOCK = settings.get("IP_PERMANENT_BLOCK", False)
+MAX_ACCESS_ATTEMPTS = getattr(settings, "MAX_ACCESS_ATTEMPTS", 3)
+LOCK_DURATION = getattr(settings, "LOCK_DURATION", 5)
+DELTA_LOCK_DURATION = getattr(settings, "DELTA_LOCK_DURATION", 1)
+USER_PERMANENT_BLOCK = getattr(settings, "USER_PERMANENT_BLOCK", False)
+IP_PERMANENT_BLOCK = getattr(settings, "IP_PERMANENT_BLOCK", False)
 
 
 def default_block_duration():
