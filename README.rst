@@ -47,4 +47,4 @@ There is some parameters to customize the backend.
 
 . ``IP_PERMANENT_BLOCK``:[ ``False`` ] boolean value
 
-. ``BLOCK_TYPE``:[ ``BOTH`` ] choice between ``both``, ``user`` or ``ip``
+. ``BLOCK_TYPE``:[ ``both`` ] choice between ``both``, ``user`` or ``ip``
