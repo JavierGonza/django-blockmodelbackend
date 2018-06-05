@@ -35,17 +35,16 @@ class BaseBlock(models.Model):
     @property
     def is_blocked(self):
         return self.permanent or (self.last_atempt and self.last_atempt + self.lock_duration >= timezone.now())
-    
+
     @property
     def permanent(self):
         return self.permanent_block
-    
 
     def fail_access(self):
         self.access_atempts_number += 1
         if self.access_atempts_number >= MAX_ACCESS_ATTEMPTS:
             self.last_atempt = timezone.now()
-            minutes = LOCK_DURATION * DELTA_LOCK_DURATION * (self.prev_locks_number + 1)
+            minutes = LOCK_DURATION * (DELTA_LOCK_DURATION * (self.prev_locks_number + 1) or 1.0)
             self.lock_duration = timezone.timedelta(minutes=minutes)
             self.access_atempts_number = 0
             self.prev_locks_number += 1
@@ -59,7 +58,7 @@ class BaseBlock(models.Model):
 
 class UserBlock(BaseBlock):
     user = models.CharField(max_length=150, blank=False, unique=True)
-    
+
     @property
     def permanent(self):
         return USER_PERMANENT_BLOCK

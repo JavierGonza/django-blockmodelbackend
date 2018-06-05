@@ -17,10 +17,14 @@ author = "Javier González"
 author_email = "correo@javier-gonzalez.es"
 license = "MIT"
 keywords = "django-blockmodelbackend"
-install_requires = ["Django>=1.8,<2.0", "django-ipware==1.1.6"]
+install_requires = ["Django>=1.8,<2.0", "django-ipware==2.1.0"]
 classifiers = ["Intended Audience :: Developers",
                "Programming Language :: Python :: 2",
                "Programming Language :: Python :: 2.7",
+               "Programming Language :: Python :: 3",
+               "Programming Language :: Python :: 3.4",
+               "Programming Language :: Python :: 3.5",
+               "Programming Language :: Python :: 3.6",
                "Framework :: Django",
                "Framework :: Django :: 1.8",
                "Framework :: Django :: 1.9",
