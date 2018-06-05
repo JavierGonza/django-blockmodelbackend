@@ -29,7 +29,7 @@ Installation
 
 	AUTHENTICATION_BACKENDS = [
 		...
-		'blockmodelbackend.blockmodelbackend.BlockModelBackend',
+		'blockmodelbackend.modelbackend.BlockModelBackend',
 	]
 
 Configuration
