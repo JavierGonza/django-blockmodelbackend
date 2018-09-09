@@ -42,7 +42,7 @@ class BlockModelBackend(ModelBackend):
             UserModel().set_password(password)
         else:
             if BLOCK_TYPE in ('both', 'user'):
-                block_user = UserBlock.objects.get_or_create(user=user)[0]
+                block_user = UserBlock.objects.get_or_create(user=user.username)[0]
                 if block_user.is_blocked:
                     raise ValidationError(_("Username blocked."))
             if self.user_can_authenticate(user):
